@@ -1,0 +1,40 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+@include xs {
+
+    %flex-layout{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+    .navbar{
+        @extend %flex-layout;
+        margin:  $base-margin;
+     
+        .container{
+            @extend %flex-layout;
+        }
+    
+        .navbar__logo{
+            width:100px;
+            height: auto;
+        }
+    }
+}
+
+@include xl{
+    .navbar{
+        margin: $base-margin *5 $base-margin;
+        padding: $base-padding $base-padding*2;
+        
+        .navbar__logo{
+            width: 158px;
+            height: 48px;
+        }
+    }
+}
+
+

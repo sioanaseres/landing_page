@@ -1,0 +1,256 @@
+
+@use 'variables' as *;
+@use 'breakpoints' as *;
+@use 'animations' as *;
+
+@include xs {
+    .hero {
+        height: auto;
+        background: url('/images/hero.svg') no-repeat center center, 
+                    url('/images/elipse1.png') no-repeat center center, 
+                    url('/images/glow.png') no-repeat center center;
+        background-size: cover;
+        background-color: #000;
+        position: relative;
+        width: 100%;
+        animation: fadeIn 1s ease-in-out;
+    
+        &::before, 
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-size: cover;
+            background-position: center;
+        }
+        &::before{
+            background-image: url('/images/elipse1.png');
+        }
+        &::after{
+            background-image: url('/images/glow.png');
+        }   
+        .row{
+            width: 85%;
+            margin: 0 auto;
+            padding-left: 1rem;
+        }
+        .hero__content{
+            width: 100%;
+            position: relative;
+            margin-top: $base-margin*3;
+            
+            .hero__title{
+                font-size: $base-font-size*1.5;
+                line-height:1.2;
+                align-items: center;
+                letter-spacing: 2;
+                margin-bottom: $base-margin;
+    
+                span{
+                    font-size: $font-size-lg;
+                    font-weight: 900;
+                }
+            }
+            .hero__subtitle{
+                font-size: $base-font-size*1.2;
+              }
+           
+    
+            .hero__connector--top{
+                position: absolute;
+                border-left: solid 2px $primary;
+                width: 25px;
+                height: 100%;
+                left: -10px;
+                top: 3rem;
+                z-index: 1;
+            
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -6px;
+                    width: 12px;
+                    height: 12px;
+                    background: $primary;
+                    border-radius: 50%;
+                    z-index: 2;
+                }
+            }
+         
+        }
+        .hero__description{
+            font-size: $base-font-size;
+            width: 85%;
+            background: linear-gradient(to right, #232323, #505861);
+            border: 1px solid transparent; 
+            border-image: linear-gradient(to bottom, #fff, #232323) 1 ;
+            background-clip: padding-box border-box;
+            padding: $base-padding;
+            margin-bottom: $base-margin*4;
+            border-radius: $base-border-radius;
+            position: relative;
+            min-height: 365.5px;
+      
+            .hero__connector--middle{
+                position: absolute;
+                border-left: solid 2px $primary;
+                width: 25px;
+                height: 110%;
+                left: -11px;
+                top: 46px;
+                z-index: 1;
+                border-radius: 0 0 0 25px;
+            }
+
+        }
+    
+    }
+
+   
+}
+
+@include sm {
+  .hero {
+    //  height: 85vh;
+      .hero__content{
+        .hero__title {
+            font-size: $font-size-sm;
+            span{
+                font-size: $font-size-xl;
+            }
+        }
+    
+        .hero__connector--top{
+            top: 6rem;
+
+            &::before{
+                top: -1rem;
+                left: -10px;
+                width:20px;
+                height: 20px;
+              
+            }
+        }
+    
+  }
+        .hero__description{
+            min-height: auto;
+            
+}
+}
+@media only screen and (orientation: landscape) {
+    .hero {
+         height: auto;
+         margin-bottom: $base-margin*5;
+       }
+    
+        }
+}
+
+@include md {
+  .hero {
+    //   height: 95vh;
+      .hero__content{
+        width: 90%;
+        .hero__title {
+            font-size: $font-size-md;
+            span{
+                font-size: $font-size-xxl;
+            }
+        }
+        .hero__subtitle{
+            font-size: $font-size-sm;
+          }
+        .button{
+            margin-bottom: $base-margin*4;
+        }
+       
+  }
+}
+  @media only screen and (orientation: landscape) {
+    .hero {
+         height: auto;
+         margin-bottom: $base-margin*5;
+       }
+    
+        }
+}
+@include lg {
+  .hero {
+ 
+      .hero__content{
+        width: 70%;
+
+
+      }
+  }
+  @media only screen and (orientation: landscape) {
+    .hero {
+         height: auto;
+         margin-bottom: $base-margin*5;
+       }
+    
+        }
+}
+@include xl {
+    .hero {
+        height: auto;
+        margin-bottom: $base-margin*5;
+        .row{
+            width: 70%;
+            max-width: 1200px;
+        
+        }
+        .hero__content{
+            width: 59%;
+            margin-top: $base-margin;
+            .hero__connector--top{
+                left: -60px;
+                width: 77px;
+                top: 8rem;
+                &::before{
+                    left: -17px;
+                    width:34px;
+                    height: 34px;
+                  
+                }
+            }
+            .hero__subtitle{
+                font-size: $font-size-sm;
+              }
+          }
+          
+        
+          .hero__description{
+            padding: $base-padding*2 $base-padding*3;
+         
+            p{
+            
+                font-size: $base-font-size;
+            }
+
+            .hero__connector--middle{
+           
+                left: -61px;
+                top: 93px;
+                border-radius:  0 0 0 30px;
+               
+            }
+          }
+       
+          }
+       
+      
+    }
+
+
+
+
+
+
